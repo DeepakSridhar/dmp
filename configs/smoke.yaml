@@ -1,0 +1,41 @@
+# Tiny model for scripts/smoke_test.sh (toy repository: K = 4, d = 16, 32-d text encodings).
+
+autoencoder:
+  resolution: 64
+  embed_dim: 4
+  ch: 32
+  ch_mult: [1, 2, 2]
+  num_res_blocks: 1
+  kl_weight: 1.0e-6
+
+diffusion:
+  timesteps: 1000
+  linear_start: 0.0015
+  linear_end: 0.0195
+  ema_decay: 0.99
+  unet_config:
+    image_size: 16
+    in_channels: 4
+    out_channels: 4
+    model_channels: 32
+    attention_resolutions: [1, 2]
+    num_res_blocks: 1
+    channel_mult: [1, 2]
+    num_head_channels: 8
+    transformer_depth: 1
+    context_dim: 32
+
+conditioning:
+  max_tokens: 16
+  p_uncond: 0.2
+
+train_autoencoder:
+  batch_size: 32
+  lr: 1.0e-3
+  steps: 300
+
+train_dmp:
+  batch_size: 32
+  lr: 1.0e-3
+  weight_decay: 0.01
+  steps: 800

@@ -1,0 +1,6 @@
+torch>=1.12
+numpy
+einops
+pyyaml
+# optional, only for scripts/encode_classnames.py:
+# git+https://github.com/openai/CLIP.git

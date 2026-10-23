@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# data, checkpoints and run outputs are never committed
+runs/
+outputs/
+checkpoints/
+data/
+*.pt
+*.pth
+*.ckpt
+*.pth.tar*
+*.safetensors

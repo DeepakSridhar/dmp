@@ -1,0 +1,42 @@
+# DMPCoOp (Sec. 4.1): CoOp prompts for CLIP ViT-B/16 with context length K = 4 and
+# d = 512, i.e. K x d = 2048 values, compressed to an 8 x 16 latent.
+
+autoencoder:
+  resolution: 2048            # K x d
+  embed_dim: 8                # latent channels
+  ch: 128
+  ch_mult: [1, 1, 1, 1, 2, 2, 2, 2]
+  num_res_blocks: 2
+  kl_weight: 1.0e-6
+
+diffusion:
+  timesteps: 1000
+  linear_start: 0.0015
+  linear_end: 0.0195
+  ema_decay: 0.9999
+  unet_config:
+    image_size: 16            # latent length
+    in_channels: 8            # latent channels
+    out_channels: 8
+    model_channels: 128
+    attention_resolutions: [16, 8, 4]   # downsampling factors at which attention is used
+    num_res_blocks: 2
+    channel_mult: [1, 2, 2, 2]
+    num_head_channels: 8
+    transformer_depth: 1
+    context_dim: 768          # CLIP ViT-L/14 text embedding of each class name
+
+conditioning:
+  max_tokens: 500             # class names per condition (zero padded)
+  p_uncond: 0.2               # condition dropout for classifier-free guidance
+
+train_autoencoder:
+  batch_size: 128
+  lr: 1.08e-4
+  steps: 100000
+
+train_dmp:
+  batch_size: 256
+  lr: 6.4e-5
+  weight_decay: 0.01
+  steps: 100000
