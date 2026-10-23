@@ -123,6 +123,10 @@ python scripts/convert_checkpoints.py repository --prompts ctx_values_dict.pt --
 }
 ```
 
+## License
+
+MIT, see `LICENSE`.
+
 ## Acknowledgements
 
 The UNet and autoencoder blocks are adapted from
