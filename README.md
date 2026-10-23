@@ -114,12 +114,13 @@ python scripts/convert_checkpoints.py repository --prompts ctx_values_dict.pt --
 ## Citation
 
 ```bibtex
-@article{sridhar2026dmp,
-  title   = {Diffusion Meta-Prompting and Steering for Generalizable Foundation Model Adaptation},
-  author  = {Sridhar, Deepak and Li, Yi and Bhardwaj, Kartikeya and Liu, Shuangjun and Jing, Taotao and
-             Li, Yuan and Zhang, Shuai and Lyu, Jiancheng and Gao, Dashan and Vasconcelos, Nuno},
-  journal = {arXiv preprint arXiv:2610.11067},
-  year    = {2026}
+@inproceedings{sridhar2026dmp,
+  title     = {Diffusion Meta-Prompting and Steering for Generalizable Foundation Model Adaptation},
+  author    = {Sridhar, Deepak and Li, Yi and Bhardwaj, Kartikeya and Liu, Shuangjun and Jing, Taotao and
+               Li, Yuan and Zhang, Shuai and Lyu, Jiancheng and Gao, Dashan and Vasconcelos, Nuno},
+  booktitle = {The Fortieth Annual Conference on Neural Information Processing Systems},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=EbyKAh8h40}
 }
 ```
 
