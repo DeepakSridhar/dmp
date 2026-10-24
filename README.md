@@ -7,15 +7,7 @@ DMP treats learned prompts as samples from a distribution. A diffusion model is 
 *repository* of previously learned prompts, conditioned on a text description of each task, and then
 synthesizes prompts for new tasks in one shot, without the original task data or task losses.
 
-This repository contains the classification pipeline (DMPClass / DMPCoOp, Sec. 4.1):
-
-| paper | code |
-| --- | --- |
-| prompt autoencoder (2048 -> 8x16 latent) | `dmp/autoencoder.py`, `scripts/train_autoencoder.py` |
-| DMP training, Eq. 1-2 | `dmp/diffusion.py`, `scripts/train_dmp.py` |
-| DDIM sampling, Eq. 3; composition / negation, Eq. 5 | `dmp/sampler.py`, `scripts/sample.py` |
-| anchor selection, Eq. 6; test-time steering, Eq. 7 | `scripts/select_anchors.py`, `scripts/sample.py --anchors` |
-| class-name conditioning (one CLIP token per class) | `dmp/data.py`, `scripts/encode_classnames.py` |
+This repository contains the classification pipeline (DMPClass / DMPCoOp)
 
 Evaluating a sampled prompt on a dataset is done with the
 prompt-learning codebase the repository came from (e.g. [CoOp](https://github.com/KaiyangZhou/CoOp)).
